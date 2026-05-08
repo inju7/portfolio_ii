@@ -121,7 +121,7 @@ const WorkLists = ({ onClose }: WorkListsProps) => {
             title: "Real-Time Speech Rate and Emotion Feedback System",
             description: "Built a web app that uses NLP and machine learning to measure tempo, pronunciation, fluency, and emotion in speech, improving feedback accuracy over time through self-learning models.",
             tech: ["React", "TypeScript", "Node.js", "Express", "Tailwind CSS", "PostCSS", "Chart.js", "RxJS"],
-            images: ["/assets/Real-Time Speech Rate and Emotion Feedback/placeholder.png"]
+            images: ["/assets/Real-Time Speech Rate and Emotion Feedback/drl.png"]
         },
         {
             title: "Talk.twah",
