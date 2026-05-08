@@ -42,7 +42,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     />
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-black/20 duration-500" />
 
                 {project.images.length > 1 && (
                     <>
