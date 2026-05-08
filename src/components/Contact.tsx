@@ -18,7 +18,7 @@ const Contact = () => {
                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/arian-a-a330ab368/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0077b5] hover:-translate-y-1 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(0,119,181,0.5)]" style={{ color: 'var(--text-secondary)' }} title="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/arianmta/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0077b5] hover:-translate-y-1 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(0,119,181,0.5)]" style={{ color: 'var(--text-secondary)' }} title="LinkedIn Profile">
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                         <rect width="4" height="12" x="2" y="9" />
