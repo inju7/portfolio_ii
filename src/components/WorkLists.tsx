@@ -158,6 +158,20 @@ const WorkLists = ({ onClose }: WorkListsProps) => {
             title: "YTMP3Downloader",
             description: "Built a personal full-stack tool to safely convert and download YouTube videos to 192kbps MP3 audio, reducing reliance on ad-heavy third-party sites.",
             tech: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Python", "Flask", "yt-dlp", "FFmpeg"],
+            images: [
+                "/assets/YTMP3Downloader/Screenshot (649).png",
+                "/assets/YTMP3Downloader/Screenshot (650).png",
+                "/assets/YTMP3Downloader/Screenshot (651).png",
+                "/assets/YTMP3Downloader/Screenshot (652).png",
+                "/assets/YTMP3Downloader/Screenshot (653).png",
+                "/assets/YTMP3Downloader/Screenshot (654).png",
+                "/assets/YTMP3Downloader/Screenshot (655).png"
+            ]
+        },
+        {
+            title: "REDAI Humanizer",
+            description: "AI-powered web application that humanizes and enhances AI-generated content with features for AI detection, plagiarism checking, grammar correction, essay generation, and integrated productivity tools.",
+            tech: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix", "Motion", "Convex", "Node.js", "GroqCloud API"],
             images: ["/assets/YTMP3Downloader/Screenshot (597).png"]
         }
     ];
