@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface ProjectCardProps {
     project: {
         title: string;
+        url?: string;
         description: string;
         tech: string[];
         images: string[];
@@ -87,7 +88,18 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 )}
             </div>
             <h3 className="text-4xl font-medium h-[4.5rem] flex items-center mb-6 transition-colors line-clamp-2 leading-tight tracking-tight">
-                {project.title}
+                {project.url ? (
+                    <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline hover:text-blue-500 transition-colors"
+                    >
+                        {project.title}
+                    </a>
+                ) : (
+                    project.title
+                )}
             </h3>
             <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
                 {project.description}
