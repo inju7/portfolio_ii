@@ -170,6 +170,7 @@ const WorkLists = ({ onClose }: WorkListsProps) => {
         },
         {
             title: "REDAI Humanizer",
+            url: "https://redai-humanizer.vercel.app/",
             description: "AI-powered web application that humanizes and enhances AI-generated content with features for AI detection, plagiarism checking, grammar correction, essay generation, and integrated productivity tools.",
             tech: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix", "Motion", "Convex", "Node.js", "GroqCloud API"],
             images: ["/assets/YTMP3Downloader/Screenshot (597).png"]
