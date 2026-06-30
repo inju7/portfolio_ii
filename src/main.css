@@ -24,6 +24,7 @@
   --border-color: #262626;
   --btn-bg: #ffffff;
   --btn-text: #171717;
+  --theme-icon-glow: rgba(255, 255, 255, 0.35);
 }
 
 [data-theme="light"] {
@@ -33,6 +34,7 @@
   --border-color: #e5e5e5;
   --btn-bg: #171717;
   --btn-text: #ffffff;
+  --theme-icon-glow: rgba(23, 23, 23, 0.25);
 }
 
 [data-theme="midnight"] {
@@ -42,6 +44,17 @@
   --border-color: #1e293b;
   --btn-bg: #38bdf8;
   --btn-text: #0f172a;
+  --theme-icon-glow: rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="br-green"] {
+  --bg-color: #16352b;
+  --text-color: #e8f5ef;
+  --text-secondary: #b8d2c7;
+  --border-color: #2d5b4a;
+  --btn-bg: #e8f5ef;
+  --btn-text: #16352b;
+  --theme-icon-glow: rgba(232, 245, 239, .45);
 }
 
 body {
@@ -83,4 +96,15 @@ body {
 * {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.theme-switcher {
+    box-shadow: 0 0 12px var(--theme-icon-glow);
+    transition: box-shadow 0.3s ease;
+}
+
+.theme-switcher:hover {
+    box-shadow:
+        0 0 18px var(--theme-icon-glow),
+        0 0 32px var(--theme-icon-glow);
 }

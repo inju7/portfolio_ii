@@ -11,7 +11,7 @@ function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isWorkListOpen, setIsWorkListOpen] = useState(false);
   const [theme, setTheme] = useState(0); // 0: Dark, 1: Light, 2: Midnight
-  const themes = ["dark", "light", "midnight"];
+  const themes = ["dark", "light", "midnight", "br-green"];
 
   // Handle Theme Change
   useEffect(() => {
@@ -142,7 +142,7 @@ function App() {
       {/* Floating Theme Switcher Button */}
       <motion.button
         onClick={() => setTheme((prev) => (prev + 1) % themes.length)}
-        className="fixed bottom-8 left-8 w-12 h-12 flex items-center justify-center rounded-full border border-custom z-[200] pointer-events-auto backdrop-blur-sm"
+        className="theme-switcher fixed bottom-8 left-8 w-12 h-12 flex items-center justify-center rounded-full border border-custom z-[200] pointer-events-auto backdrop-blur-sm"
         style={{ 
           borderColor: 'var(--border-color)',
           color: 'var(--text-color)',
@@ -152,7 +152,10 @@ function App() {
         whileTap={{ scale: 0.9 }}
         title={`Current Theme: ${themes[theme]}`}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+        style={{
+          filter: "drop-shadow(0 0 8px var(--theme-icon-glow))"
+        }}>
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2" />
           <path d="M12 20v2" />
