@@ -57,6 +57,16 @@
   --theme-icon-glow: rgba(232, 245, 239, .45);
 }
 
+[data-theme="burgundy"] {
+  --bg-color: #34161f;
+  --text-color: #f4ecef;
+  --text-secondary: #ccb8bf;
+  --border-color: #5a323d;
+  --btn-bg: #f4ecef;
+  --btn-text: #34161f;
+  --theme-icon-glow: rgba(244, 236, 239, .45);
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);

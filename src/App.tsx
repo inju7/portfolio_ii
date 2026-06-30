@@ -11,7 +11,7 @@ function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isWorkListOpen, setIsWorkListOpen] = useState(false);
   const [theme, setTheme] = useState(0); // 0: Dark, 1: Light, 2: Midnight
-  const themes = ["dark", "light", "midnight", "br-green"];
+  const themes = ["dark", "light", "midnight", "br-green", "burgundy"];
 
   // Handle Theme Change
   useEffect(() => {
