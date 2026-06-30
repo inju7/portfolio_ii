@@ -1,12 +1,12 @@
 const TechStacks = () => {
     const techStacks = {
-        frontend: [
+        Frontend: [
             'React', 'TypeScript', 'Angular', 'Tailwind CSS', 'Vite', 'shadcn/ui', 'Chart.js'
         ],
-        backend: [
+        Backend: [
             'Node.js', 'Express', 'Python', 'Flask'
         ],
-        database: [
+        Database: [
             'Firebase', 'Convex', 'Supabase', 'PostgreSQL'
         ],
         AI: [
