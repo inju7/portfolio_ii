@@ -58,13 +58,13 @@
 }
 
 [data-theme="burgundy"] {
-  --bg-color: #34161f;
-  --text-color: #f4ecef;
-  --text-secondary: #ccb8bf;
-  --border-color: #5a323d;
-  --btn-bg: #f4ecef;
-  --btn-text: #34161f;
-  --theme-icon-glow: rgba(244, 236, 239, .45);
+  --bg-color: #4A0F1E;
+  --text-color: #FFF4F7;
+  --text-secondary: #E5C3CB;
+  --border-color: #7A243C;
+  --btn-bg: #FFF4F7;
+  --btn-text: #4A0F1E;
+  --theme-icon-glow: rgba(255, 244, 247, .45);
 }
 
 body {
