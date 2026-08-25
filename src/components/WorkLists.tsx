@@ -189,7 +189,7 @@ const WorkLists = ({ onClose }: WorkListsProps) => {
         },
         {
             title: "Apex Home Services",
-            description: "AI-powered web application that humanizes and enhances AI-generated content with features for AI detection, plagiarism checking, grammar correction, essay generation, and integrated productivity tools.",
+            description: "A WordPress + Elementor service-business website built with custom PHP shortcodes and responsive UI components.",
             tech: ["WordPress, Elementor, PHP, CSS"],
             images: ["/assets/Apex Home Services/Opera Snapshot_2026-08-26_073659_wordpress-lab.local.png"]
         }
