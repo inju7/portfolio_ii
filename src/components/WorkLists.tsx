@@ -186,6 +186,12 @@ const WorkLists = ({ onClose }: WorkListsProps) => {
                 "/assets/REDAI Humanizer/Screenshot (653).png",
                 "/assets/REDAI Humanizer/Screenshot (654).png",
                 "/assets/REDAI Humanizer/Screenshot (655).png"]
+        },
+        {
+            title: "Apex Home Services",
+            description: "AI-powered web application that humanizes and enhances AI-generated content with features for AI detection, plagiarism checking, grammar correction, essay generation, and integrated productivity tools.",
+            tech: ["WordPress, Elementor, PHP, CSS"],
+            images: ["/assets/Apex Home Services/Opera Snapshot_2026-08-26_073659_wordpress-lab.local.png"]
         }
     ];
 
