@@ -12,26 +12,29 @@ interface LightboxProps {
 
 const Lightbox = ({ images, startIndex, title, onClose }: LightboxProps) => {
     const [index, setIndex] = useState(startIndex);
+    const [zoomed, setZoomed] = useState(false);
 
     const prev = useCallback((e?: React.MouseEvent) => {
         e?.stopPropagation();
+        setZoomed(false);
         setIndex((i) => (i - 1 + images.length) % images.length);
     }, [images.length]);
 
     const next = useCallback((e?: React.MouseEvent) => {
         e?.stopPropagation();
+        setZoomed(false);
         setIndex((i) => (i + 1) % images.length);
     }, [images.length]);
 
     useEffect(() => {
         const handleKey = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') onClose();
-            if (e.key === 'ArrowLeft') prev();
-            if (e.key === 'ArrowRight') next();
+            if (e.key === 'Escape') { if (zoomed) setZoomed(false); else onClose(); }
+            if (e.key === 'ArrowLeft' && !zoomed) prev();
+            if (e.key === 'ArrowRight' && !zoomed) next();
         };
         window.addEventListener('keydown', handleKey);
         return () => window.removeEventListener('keydown', handleKey);
-    }, [onClose, prev, next]);
+    }, [onClose, prev, next, zoomed]);
 
     return (
         <motion.div
@@ -60,9 +63,14 @@ const Lightbox = ({ images, startIndex, title, onClose }: LightboxProps) => {
                 {title} &nbsp;·&nbsp; {index + 1} / {images.length}
             </div>
 
-            {/* Image */}
+            {/* Image — scrollable zoom container */}
             <div
-                className="relative flex items-center justify-center w-full h-full px-20"
+                className="relative flex items-center justify-center w-full h-full"
+                style={{
+                    overflow: zoomed ? 'auto' : 'hidden',
+                    padding: zoomed ? '2rem' : '0 5rem',
+                    cursor: zoomed ? 'zoom-out' : 'default',
+                }}
                 onClick={(e) => e.stopPropagation()}
             >
                 <AnimatePresence mode="wait">
@@ -70,17 +78,40 @@ const Lightbox = ({ images, startIndex, title, onClose }: LightboxProps) => {
                         key={index}
                         src={images[index]}
                         alt={`${title} — ${index + 1}`}
-                        className="max-w-full max-h-[85vh] object-contain shadow-2xl select-none"
+                        className="shadow-2xl select-none"
+                        style={{
+                            maxWidth: zoomed ? 'none' : '100%',
+                            maxHeight: zoomed ? 'none' : '85vh',
+                            width: zoomed ? '200%' : 'auto',
+                            objectFit: 'contain',
+                            cursor: zoomed ? 'zoom-out' : 'zoom-in',
+                            transition: 'width 0.3s ease, max-width 0.3s ease, max-height 0.3s ease',
+                        }}
                         initial={{ opacity: 0, scale: 0.97 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.97 }}
                         transition={{ duration: 0.25, ease: 'easeInOut' }}
                         draggable={false}
+                        onClick={(e) => { e.stopPropagation(); setZoomed((z) => !z); }}
                     />
                 </AnimatePresence>
 
-                {/* Prev / Next */}
-                {images.length > 1 && (
+                {/* Zoom hint badge */}
+                <div
+                    className="absolute bottom-4 right-4 text-[10px] font-semibold uppercase tracking-widest px-2 py-1 border pointer-events-none transition-opacity duration-300"
+                    style={{
+                        backgroundColor: 'rgba(0,0,0,0.55)',
+                        borderColor: 'rgba(255,255,255,0.15)',
+                        color: 'rgba(255,255,255,0.7)',
+                        backdropFilter: 'blur(6px)',
+                        opacity: zoomed ? 0 : 1,
+                    }}
+                >
+                    Click to zoom
+                </div>
+
+                {/* Prev / Next — hidden when zoomed */}
+                {images.length > 1 && !zoomed && (
                     <>
                         <button
                             onClick={prev}
