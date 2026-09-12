@@ -1,120 +1,441 @@
-@import "tailwindcss";
+/* ─── Design Tokens ──────────────────────────────────────────── */
+:root {
+  /* Ground palette */
+  --ground:        #0D0B09;
+  --surface:       #131108;
+  --surface2:      #1A1710;
+  --border:        rgba(200, 133, 58, 0.14);
 
-/* Define your local font here */
-@font-face {
-  font-family: 'Elms Sans';
-  /* Make sure this filename matches your actual file exactly! */
-  src: url('/fonts/ElmsSans-VariableFont_wght.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
+  /* Ink */
+  --ink:           #F0E8DA;
+  --ink2:          #B8A98E;
+  --ink3:          #6B5E48;
+
+  /* Amber accent */
+  --amber:         #C8853A;
+  --amber2:        #E0A055;
+  --amber-bg:      rgba(200, 133, 58, 0.08);
+  --amber-border:  rgba(200, 133, 58, 0.25);
+
+  /* Legacy theme compat (keep for WorkLists overlay) */
+  --bg-color:      #0D0B09;
+  --text-color:    #F0E8DA;
+  --text-secondary:#B8A98E;
+  --border-color:  rgba(200, 133, 58, 0.14);
+  --btn-bg:        #C8853A;
+  --btn-text:      #0D0B09;
+  --theme-icon-glow: rgba(200, 133, 58, 0.3);
 }
 
-/* If you have a bold version, add another block for it
-@font-face {
-  font-family: 'Elms Sans';
-  src: url('/fonts/ElmsSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}*/
-
-:root {
-  --bg-color: #0e0d0d;
-  --text-color: #ffffff;
-  --text-secondary: #a3a3a3;
-  --border-color: #262626;
-  --btn-bg: #ffffff;
-  --btn-text: #171717;
-  --theme-icon-glow: rgba(255, 255, 255, 0.35);
+/* ─── Theme Overrides ────────────────────────────────────────── */
+[data-theme="dark"] {
+  --ground:        #0D0B09;
+  --surface:       #131108;
+  --surface2:      #1A1710;
+  --border:        rgba(200, 133, 58, 0.14);
+  --ink:           #F0E8DA;
+  --ink2:          #B8A98E;
+  --ink3:          #6B5E48;
+  --amber:         #C8853A;
+  --amber2:        #E0A055;
+  --amber-bg:      rgba(200, 133, 58, 0.08);
+  --amber-border:  rgba(200, 133, 58, 0.25);
+  --bg-color:      #0D0B09;
+  --text-color:    #F0E8DA;
+  --text-secondary:#B8A98E;
+  --border-color:  rgba(200, 133, 58, 0.14);
+  --theme-icon-glow: rgba(200, 133, 58, 0.3);
 }
 
 [data-theme="light"] {
-  --bg-color: #f5f5f5;
-  --text-color: #171717;
-  --text-secondary: #525252;
-  --border-color: #e5e5e5;
-  --btn-bg: #171717;
-  --btn-text: #ffffff;
-  --theme-icon-glow: rgba(23, 23, 23, 0.25);
+  --ground:        #F5EFE6;
+  --surface:       #EDE5D8;
+  --surface2:      #E0D5C3;
+  --border:        rgba(100, 70, 30, 0.15);
+  --ink:           #1A1208;
+  --ink2:          #4A3E2C;
+  --ink3:          #8A7A60;
+  --amber:         #B06C1E;
+  --amber2:        #C8853A;
+  --amber-bg:      rgba(176, 108, 30, 0.08);
+  --amber-border:  rgba(176, 108, 30, 0.22);
+  --bg-color:      #F5EFE6;
+  --text-color:    #1A1208;
+  --text-secondary:#4A3E2C;
+  --border-color:  rgba(100, 70, 30, 0.15);
+  --theme-icon-glow: rgba(176, 108, 30, 0.25);
 }
 
 [data-theme="midnight"] {
-  --bg-color: #0c1222;
-  --text-color: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --border-color: #1e293b;
-  --btn-bg: #38bdf8;
-  --btn-text: #0f172a;
-  --theme-icon-glow: rgba(255, 255, 255, 0.25);
+  --ground:        #0A0E1A;
+  --surface:       #0F1424;
+  --surface2:      #161C30;
+  --border:        rgba(100, 140, 220, 0.14);
+  --ink:           #E8EEFF;
+  --ink2:          #8A9ACC;
+  --ink3:          #404C70;
+  --amber:         #6A9FE0;
+  --amber2:        #88BBFF;
+  --amber-bg:      rgba(106, 159, 224, 0.08);
+  --amber-border:  rgba(106, 159, 224, 0.22);
+  --bg-color:      #0A0E1A;
+  --text-color:    #E8EEFF;
+  --text-secondary:#8A9ACC;
+  --border-color:  rgba(100, 140, 220, 0.14);
+  --theme-icon-glow: rgba(106, 159, 224, 0.3);
 }
 
 [data-theme="br-green"] {
-  --bg-color: #16352b;
-  --text-color: #e8f5ef;
-  --text-secondary: #b8d2c7;
-  --border-color: #2d5b4a;
-  --btn-bg: #e8f5ef;
-  --btn-text: #16352b;
-  --theme-icon-glow: rgba(232, 245, 239, .45);
+  --ground:        #0E2218;
+  --surface:       #122B1E;
+  --surface2:      #173628;
+  --border:        rgba(80, 180, 120, 0.14);
+  --ink:           #E0F5EC;
+  --ink2:          #7AB89A;
+  --ink3:          #3A6650;
+  --amber:         #4DB87A;
+  --amber2:        #6DD69A;
+  --amber-bg:      rgba(77, 184, 122, 0.08);
+  --amber-border:  rgba(77, 184, 122, 0.22);
+  --bg-color:      #0E2218;
+  --text-color:    #E0F5EC;
+  --text-secondary:#7AB89A;
+  --border-color:  rgba(80, 180, 120, 0.14);
+  --theme-icon-glow: rgba(77, 184, 122, 0.3);
 }
 
 [data-theme="burgundy"] {
-  --bg-color: #4A0F1E;
-  --text-color: #FFF4F7;
-  --text-secondary: #E5C3CB;
-  --border-color: #7A243C;
-  --btn-bg: #FFF4F7;
-  --btn-text: #4A0F1E;
-  --theme-icon-glow: rgba(255, 244, 247, .45);
+  --ground:        #2A0810;
+  --surface:       #360C18;
+  --surface2:      #421022;
+  --border:        rgba(200, 80, 100, 0.14);
+  --ink:           #FFF0F3;
+  --ink2:          #D4909A;
+  --ink3:          #8A4050;
+  --amber:         #E05070;
+  --amber2:        #F07090;
+  --amber-bg:      rgba(224, 80, 112, 0.08);
+  --amber-border:  rgba(224, 80, 112, 0.22);
+  --bg-color:      #2A0810;
+  --text-color:    #FFF0F3;
+  --text-secondary:#D4909A;
+  --border-color:  rgba(200, 80, 100, 0.14);
+  --theme-icon-glow: rgba(224, 80, 112, 0.3);
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Elms Sans', sans-serif;
-  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Elegant universal transition for theme-affected properties */
-* {
+  background-color: var(--ground);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
   transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+              color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Use variables for components */
-.bg-custom-main {
-  background-color: var(--bg-color);
+/* Hide scrollbar */
+::-webkit-scrollbar { display: none !important; }
+* { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Typography helpers ─────────────────────────────────────── */
+.serif {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-.text-custom-main {
-  color: var(--text-color);
+.mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
 
-.text-custom-secondary {
-  color: var(--text-secondary);
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink3);
 }
 
-.border-custom {
-  border-color: var(--border-color);
+/* ─── Layout ─────────────────────────────────────────────────── */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  padding: 2.5rem 1.75rem;
+  border-right: 1px solid var(--border);
+  background: var(--ground);
+  z-index: 50;
+  display: none;
 }
 
-/* Hide Scrollbar completely */
-::-webkit-scrollbar {
-  display: none !important;
+@media (min-width: 1024px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-* {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.main-content {
+  margin-left: 0;
 }
 
+@media (min-width: 1024px) {
+  .main-content {
+    margin-left: 200px;
+  }
+}
+
+.mobile-nav {
+  display: flex;
+}
+
+@media (min-width: 1024px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* ─── Nav links ──────────────────────────────────────────────── */
+.nav-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--amber);
+}
+
+/* ─── Role pills ─────────────────────────────────────────────── */
+.role-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.role-pill:hover {
+  border-color: var(--amber-border);
+  color: var(--ink2);
+}
+
+.role-pill.active {
+  background: var(--amber-bg);
+  border-color: var(--amber-border);
+  color: var(--amber2);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn-amber {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  background: var(--amber);
+  color: var(--ground);
+  text-decoration: none;
+  border: 1px solid var(--amber);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.btn-amber:hover {
+  background: var(--amber2);
+  border-color: var(--amber2);
+}
+
+.btn-ghost {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  background: transparent;
+  color: var(--ink2);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--amber-border);
+  color: var(--ink);
+}
+
+/* ─── Bento grid ─────────────────────────────────────────────── */
+.bento {
+  display: grid;
+}
+
+/* ─── Stat cell ──────────────────────────────────────────────── */
+.stat-cell {
+  transition: background 0.2s;
+}
+
+.stat-cell:hover {
+  background: var(--surface2);
+}
+
+/* ─── Ambient glow ───────────────────────────────────────────── */
+.amber-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 133, 58, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── Project row ────────────────────────────────────────────── */
+.proj-row {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .proj-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .proj-row.reverse {
+    direction: rtl;
+  }
+
+  .proj-row.reverse > * {
+    direction: ltr;
+  }
+}
+
+.proj-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.proj-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.proj-img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+/* ─── Arch drawer ────────────────────────────────────────────── */
+.drawer {
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+}
+
+/* ─── Stack tag ──────────────────────────────────────────────── */
+.stag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  color: var(--ink3);
+  background: var(--surface);
+  letter-spacing: 0.06em;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.stag:hover {
+  border-color: var(--amber-border);
+  color: var(--ink2);
+}
+
+/* ─── Contact section ────────────────────────────────────────── */
+.contact-section {
+  background: #F2E8D8;
+  color: #1A1208;
+}
+
+[data-theme="light"] .contact-section { background: #E8DDD0; }
+[data-theme="midnight"] .contact-section { background: #1A2040; }
+[data-theme="br-green"] .contact-section { background: #1A3828; }
+[data-theme="burgundy"] .contact-section { background: #5A1828; }
+
+/* Light input (contact form) */
+.c-input-light {
+  width: 100%;
+  padding: 10px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(26, 18, 8, 0.2);
+  color: #1A1208;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.c-input-light::placeholder {
+  color: rgba(26, 18, 8, 0.3);
+}
+
+.c-input-light:focus {
+  border-bottom-color: #B06C1E;
+}
+
+/* Copy button */
+.copy-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(26, 18, 8, 0.2);
+  background: transparent;
+  color: rgba(26, 18, 8, 0.55);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover,
+.copy-btn.copied {
+  border-color: #B06C1E;
+  color: #B06C1E;
+}
+
+/* ─── Theme switcher (preserved from original) ──────────────── */
 .theme-switcher {
-    box-shadow: 0 0 12px var(--theme-icon-glow);
-    transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 12px var(--theme-icon-glow);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .theme-switcher:hover {
-    box-shadow:
-        0 0 18px var(--theme-icon-glow),
-        0 0 32px var(--theme-icon-glow);
+  box-shadow:
+    0 0 18px var(--theme-icon-glow),
+    0 0 32px var(--theme-icon-glow);
 }
