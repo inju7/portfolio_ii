@@ -674,29 +674,6 @@ function Contact() {
   );
 }
 
-/* ─── Footer ─────────────────────────────────────────────────── */
-function Footer() {
-  return (
-    <footer
-      style={{
-        display: "flex", flexWrap: "wrap", alignItems: "center",
-        justifyContent: "space-between", gap: "12px",
-        padding: "1.75rem 2.5rem",
-        borderTop: "1px solid var(--border)",
-        background: "var(--ground)",
-      }}
-    >
-      <span className="mono" style={{ fontSize: 10, color: "var(--ink3)", letterSpacing: "0.08em" }}>
-        © 2025 ARIAN ALLORDE — BUILT WITH REACT · VITE · TAILWIND CSS
-      </span>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#6DBF7C", display: "inline-block" }} />
-        <span className="mono" style={{ fontSize: 10, color: "var(--ink3)" }}>OPEN TO WORK</span>
-      </div>
-    </footer>
-  );
-}
-
 /* ─── Root ───────────────────────────────────────────────────── */
 export default function App() {
   const [role, setRole] = useState<Role>("fullstack");
@@ -741,7 +718,6 @@ export default function App() {
         <Work activeRole={role} />
         <Stack />
         <Contact />
-        <Footer />
       </main>
 
       {/* Floating theme switcher */}
