@@ -728,9 +728,6 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  const handleViewWork = () => {
-    setIsWorkListOpen(true);
-  };
 
   return (
     <div style={{ background: "var(--ground)", minHeight: "100vh" }}>
